@@ -1,0 +1,8 @@
+{
+    "name": "MuchNeeded",
+    "author": "Ilhsiek",
+    "license": "License",
+    "version": "1.0.0",
+    "dependencies": {},
+    "main": "package.js"
+}
