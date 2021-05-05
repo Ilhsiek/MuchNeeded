@@ -11,6 +11,16 @@
         },
         "Health": {
             "enabled": false,
+            "super": false,
+            "bodyParts": {
+                "Head": 500,
+                "Chest": 500,
+                "Stomach": 500,
+                "LeftArm": 500,
+                "RightArm": 500,
+                "LeftLeg": 500,
+                "RightLeg": 500
+            },
             "stims": {
                 "Propital": {
                     "Duration": 300,
