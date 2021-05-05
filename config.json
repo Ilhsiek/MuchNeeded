@@ -1,11 +1,16 @@
 {
     "globals_config": {
-        "enabled":false,
-        "remove_the_damn_fog":true,
-        "GlobalLootChanceModifier": 50,
-        "RemoveLootRestriction": true,
-        "RemoveCarryRestriction": true,
+        "enabled": false,
+        "remove_the_damn_fog": true,
+        "raid": {
+            "enabled": false,
+            "GlobalLootChanceModifier": 50,
+            "RemoveLootRestriction": false,
+            "RemoveCarryRestriction": false,
+            "InsuranceMaxStorageTimeInHour": 100
+        },
         "Health": {
+            "enabled": false,
             "stims": {
                 "Propital": {
                     "Duration": 300,
@@ -18,10 +23,23 @@
                 "MULE": {
                     "Duration": 900,
                     "Value": 0.5
+                },
+                "SJ6": {
+                    "Duration": 500,
+                    "Value": 40
+                },
+                "SJ1_Strength": {
+                    "Duration":500 ,
+                    "Value":40
+                },
+                "Antidote": {
+                    "Duration": 300,
+                    "Value": 0
                 }
             }
         },
         "Stamina": {
+            "enabled": false,
             "Capacity": 600,
             "BaseRestorationRate": 100,
             "JumpConsumption": 10,
@@ -44,18 +62,20 @@
                 "y": 200
             }
         },
-        "WalkSpeed": {
-            "x": 0.8,
-            "y": 1.5
+        "movements": {
+            "enabled": false,
+            "WalkSpeed": {
+                "x": 0.8,
+                "y": 1.5
+            },
+            "SprintSpeed": {
+                "x": 70,
+                "y": 70
+            },
+            "EnduranceWeightThreshold": 200
         },
-        "SprintSpeed": {
-            "x": 70,
-            "y": 70
-        },
-        "EnduranceWeightThreshold": 200,
-        "InsuranceMaxStorageTimeInHour": 100,
         "SkillsSettings": {
-            "enabled":false,
+            "enabled": false,
             "WeapomSkillProgressRate": 4,
             "HideoutManagement": {
                 "EliteSlots": {
@@ -94,11 +114,16 @@
                 "id": "5a9e81fba2750c00164f6b11",
                 "name": "mag_vss_tochmash_sr3m130_9x39_30",
                 "size": 50
+            },
+            "glock_drum_50": {
+                "id": "5a718f958dc32e00094b97e7",
+                "name": "mag_glock_sgmt_glock_drum_50_9x19_50",
+                "size": 80
             }
         },
         "########## MEDS ##########": "",
         "meds": {
-            "enabled":false,
+            "enabled": false,
             "salewa": {
                 "id": "544fb45d4bdc2dee738b4568",
                 "name": "salewa",
@@ -114,7 +139,7 @@
         },
         "########## CONTAINER ##########": "",
         "container": {
-            "enabled":true,
+            "enabled": true,
             "kappa": {
                 "id": "5c093ca986f7740a1867ab12",
                 "name": "item_container_secured_kappa",
@@ -136,7 +161,7 @@
         },
         "########## ARMOR ##########": "",
         "armor": {
-            "enabled":false,
+            "enabled": false,
             "slick": {
                 "id": "5e4abb5086f77406975c9342",
                 "name": "item_equipment_armor_slick",
@@ -166,5 +191,8 @@
                 "armorClass": 1
             }
         }
+    },
+    "traders":{
+        "finishAllQuests":false
     }
 }

@@ -26,63 +26,86 @@ class ItemMod {
                 WeatherConfig.weather.fog.max = 0.01;
 
             }
-            // Loot Chance Modifier
-            globalsFile.GlobalLootChanceModifier = config.globals_config.GlobalLootChanceModifier;
 
-            // In-Raid Restrictions
-            if (config.globals_config.RemoveLootRestriction === true) {
-                for (let i in items) {
-                    if (items[i]._props.Unlootable == true) {
+            if (config.globals_config.raid.enabled === true) {
+                // Loot Chance Modifier
+                globalsFile.GlobalLootChanceModifier = config.globals_config.raid.GlobalLootChanceModifier;
 
-                        items[i]._props.Unlootable = false;
-                        items[i].UnlootableFromSide = [];
+                // In-Raid Restrictions
+                if (config.globals_config.raid.RemoveLootRestriction === true) {
+                    for (let i in items) {
+                        if (items[i]._props.Unlootable == true) {
+
+                            items[i]._props.Unlootable = false;
+                            items[i].UnlootableFromSide = [];
+                        }
                     }
                 }
+
+                if (config.globals_config.raid.RemoveCarryRestriction === true) {
+                    globalsFile.RestrictionsInRaid = []
+                }
+                globalsFile.Insurance.MaxStorageTimeInHour = config.globals_config.InsuranceMaxStorageTimeInHour;
             }
 
-            if (config.globals_config.RemoveCarryRestriction === true) {
-                globalsFile.RestrictionsInRaid = []
-            }
 
 
             // Stimulants Buff
-            globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Duration = config.globals_config.Health.stims.Propital.Duration;
-            globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Value = config.globals_config.Health.stims.Propital.Value;
-            globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Duration = config.globals_config.Health.stims.eTGc.Duration;
-            globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Value = config.globals_config.Health.stims.eTGc.Value;
-            globalsFile.Health.Effects.Stimulator.Buffs.Buffs_MULE[0].Duration = config.globals_config.Health.stims.MULE.Duration;
-            globalsFile.Health.Effects.Stimulator.Buffs.Buffs_MULE[0].Value = config.globals_config.Health.stims.MULE.Value;
+            if (config.globals_config.Health.enabled === true) {
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Duration = config.globals_config.Health.stims.Propital.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Value = config.globals_config.Health.stims.Propital.Value;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Duration = config.globals_config.Health.stims.eTGc.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Value = config.globals_config.Health.stims.eTGc.Value;
+                globalsFile.Health.Effects.Stimulator.Buffs.Buffs_MULE[0].Duration = config.globals_config.Health.stims.MULE.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.Buffs_MULE[0].Value = config.globals_config.Health.stims.MULE.Value;
+
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[0].Duration = config.globals_config.Health.stims.SJ6.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[0].Value = config.globals_config.Health.stims.SJ6.Value;
+
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ1TGLabs[1].Duration = config.globals_config.Health.stims.SJ1_Strength.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ1TGLabs[1].Value = config.globals_config.Health.stims.SJ1_Strength.Value;
+
+                globalsFile.Health.Effects.Stimulator.Buffs.Buffs_Antidote[0].Duration = config.globals_config.Health.stims.Antidote.Duration;
+            }
+
 
 
             // Stamina Config.
-            globalsFile.Stamina.Capacity = config.globals_config.Stamina.Capacity;
-            globalsFile.Stamina.BaseRestorationRate = config.globals_config.Stamina.BaseRestorationRate;
-            globalsFile.Stamina.JumpConsumption = config.globals_config.Stamina.JumpConsumption;
-            globalsFile.Stamina.OxygenCapacity = config.globals_config.Stamina.OxygenCapacity;
-            globalsFile.Stamina.OxygenRestoration = config.globals_config.Stamina.OxygenRestoration;
-            globalsFile.Stamina.WalkOverweightLimits.x = config.globals_config.Stamina.WalkOverweightLimits.x;
-            globalsFile.Stamina.WalkOverweightLimits.y = config.globals_config.Stamina.WalkOverweightLimits.y;
-            globalsFile.Stamina.BaseOverweightLimits.x = config.globals_config.Stamina.BaseOverweightLimits.x;
-            globalsFile.Stamina.BaseOverweightLimits.y = config.globals_config.Stamina.BaseOverweightLimits.y;
-            globalsFile.Stamina.SprintOverweightLimits.x = config.globals_config.Stamina.SprintOverweightLimits.x;
-            globalsFile.Stamina.SprintOverweightLimits.y = config.globals_config.Stamina.SprintOverweightLimits.y;
-            globalsFile.Stamina.WalkOverweightLimits.x = config.globals_config.Stamina.WalkSpeedOverweightLimits.x;
-            globalsFile.Stamina.WalkOverweightLimits.y = config.globals_config.Stamina.WalkSpeedOverweightLimits.y;
+            if (config.globals_config.Stamina.enabled === true) {
+                globalsFile.Stamina.Capacity = config.globals_config.Stamina.Capacity;
+                globalsFile.Stamina.BaseRestorationRate = config.globals_config.Stamina.BaseRestorationRate;
+                globalsFile.Stamina.JumpConsumption = config.globals_config.Stamina.JumpConsumption;
+                globalsFile.Stamina.OxygenCapacity = config.globals_config.Stamina.OxygenCapacity;
+                globalsFile.Stamina.OxygenRestoration = config.globals_config.Stamina.OxygenRestoration;
+                globalsFile.Stamina.WalkOverweightLimits.x = config.globals_config.Stamina.WalkOverweightLimits.x;
+                globalsFile.Stamina.WalkOverweightLimits.y = config.globals_config.Stamina.WalkOverweightLimits.y;
+                globalsFile.Stamina.BaseOverweightLimits.x = config.globals_config.Stamina.BaseOverweightLimits.x;
+                globalsFile.Stamina.BaseOverweightLimits.y = config.globals_config.Stamina.BaseOverweightLimits.y;
+                globalsFile.Stamina.SprintOverweightLimits.x = config.globals_config.Stamina.SprintOverweightLimits.x;
+                globalsFile.Stamina.SprintOverweightLimits.y = config.globals_config.Stamina.SprintOverweightLimits.y;
+                globalsFile.Stamina.WalkOverweightLimits.x = config.globals_config.Stamina.WalkSpeedOverweightLimits.x;
+                globalsFile.Stamina.WalkOverweightLimits.y = config.globals_config.Stamina.WalkSpeedOverweightLimits.y;
+            }
 
 
-            globalsFile.WalkSpeed.x = config.globals_config.WalkSpeed.x;
-            globalsFile.WalkSpeed.y = config.globals_config.WalkSpeed.y;
-            globalsFile.SprintSpeed.x = config.globals_config.SprintSpeed.y;
-            globalsFile.SprintSpeed.y = config.globals_config.SprintSpeed.y
+
+            if (config.globals_config.movements.enabled === true) {
+                globalsFile.WalkSpeed.x = config.globals_config.movements.WalkSpeed.x;
+                globalsFile.WalkSpeed.y = config.globals_config.movements.WalkSpeed.y;
+                globalsFile.SprintSpeed.x = config.globals_config.movements.SprintSpeed.y;
+                globalsFile.SprintSpeed.y = config.globals_config.movements.SprintSpeed.y
+                globalsFile.EnduranceWeightThreshold = config.globals_config.EnduranceWeightThreshold;
+            }
 
 
-            globalsFile.EnduranceWeightThreshold = config.globals_config.EnduranceWeightThreshold;
-            globalsFile.Insurance.MaxStorageTimeInHour = config.globals_config.InsuranceMaxStorageTimeInHour;
-            globalsFile.SkillsSettings.WeapomSkillProgressRate = config.globals_config.SkillsSettings.WeapomSkillProgressRate;
+
+
+
 
 
             // Skills Config.
-            if (globals.SkillsSettings.enabled === true) {
+            if (config.globals_config.SkillsSettings.enabled === true) {
+                globalsFile.SkillsSettings.WeapomSkillProgressRate = config.globals_config.SkillsSettings.WeapomSkillProgressRate;
                 globalsFile.SkillsSettings.HideoutManagement.EliteSlots.WaterCollector.Slots = config.globals_config.SkillsSettings.HideoutManagement.EliteSlots.WaterCollector.Slots;
 
                 globalsFile.SkillsSettings.HideoutManagement.EliteSlots.BitcoinFarm.Slots = config.globals_config.SkillsSettings.HideoutManagement.EliteSlots.BitcoinFarm.Slots;
@@ -173,6 +196,27 @@ class ItemMod {
             /** Armor Config. **/
 
         }
+
+         /** Finish All Quests **/
+         if (config.traders.finishAllQuests === true) {
+            let base = database.templates.quests
+
+            for (let file in base) {
+                let fileData = base[file]
+
+                fileData.conditions.AvailableForFinish = [{
+                    "_parent": "Level",
+                    "_props": {
+                        "compareMethod": ">=",
+                        "value": "1",
+                        "index": 0,
+                        "parentId": "",
+                        "id": "GTFO"
+                    }
+                }]
+            }
+        } 
+        /** Finish All Quests **/
 
     }
 
