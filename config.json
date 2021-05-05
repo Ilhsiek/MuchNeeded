@@ -13,13 +13,34 @@
             "enabled": false,
             "super": false,
             "bodyParts": {
-                "Head": 500,
-                "Chest": 500,
-                "Stomach": 500,
-                "LeftArm": 500,
-                "RightArm": 500,
-                "LeftLeg": 500,
-                "RightLeg": 500
+                "Head": {
+                    "new": 500,
+                    "default": 35
+                },
+                "Chest": {
+                    "new": 500,
+                    "default": 85
+                },
+                "Stomach": {
+                    "new": 500,
+                    "default": 70
+                },
+                "LeftArm": {
+                    "new": 500,
+                    "default": 60
+                },
+                "RightArm": {
+                    "new": 500,
+                    "default": 60
+                },
+                "LeftLeg": {
+                    "new": 500,
+                    "default": 65
+                },
+                "RightLeg": {
+                    "new": 500,
+                    "default": 65
+                }
             },
             "stims": {
                 "Propital": {
