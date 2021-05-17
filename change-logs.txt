@@ -1,0 +1,23 @@
+1.3.0
+- Added a new stim to Therapist. For this to work porperly you have to enable the "GodMode" oprion in "Health" and give the "Head" a high number eg 1500.
+- Fixed some of the Stimulators Buffs
+- Added the FiveSeven Pistol mag.
+
+
+1.2.2
+- Corrected values for the "ArmorClass" of the the new body armor buffs added. (Thanks to @Rev to catching that)
+
+1.2.1
+- Added GodMode (Thanks to @Rev on the collaboration)
+- Added more body armor(Killa, Defender, TV110 and HexGrid, more can be added with suggestions)
+
+1.1.1
+- Now you can finish your quests as soon as you accept them (as requested).
+
+1.1.0
+- Fixed the "globals" error that occured for some users.
+- Added mod options for the 50-rnd Glock mag.
+- Added mod options for SJ1, SJ6 and Antidote.
+
+1.0.1
+-All features can now be toogled.

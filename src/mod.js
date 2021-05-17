@@ -2,7 +2,7 @@
 ELCTRN
 */
 
-class ItemMod {
+class MuchNeeded {
     constructor() {
         this.mod = "Ilhsiek-MuchNeeded";
         Logger.info(`Loading: ${this.mod}`);
@@ -11,10 +11,16 @@ class ItemMod {
 
     Start() {
         const config = require("../config.json");
+        const defaults = require("../src/defaults.json");
+
 
         const database = DatabaseServer.tables;
         const globalsFile = database.globals.config;
         const items = database.templates.items;
+        const handbook = database.templates.handbook.Items;
+        const global = database.locales.global;
+        const traders = database.traders;
+
 
 
 
@@ -54,6 +60,8 @@ class ItemMod {
             if (config.globals_config.Health.enabled === true) {
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Duration = config.globals_config.Health.stims.Propital.Duration;
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsPropital[0].Value = config.globals_config.Health.stims.Propital.Value;
+                items["5c0e530286f7747fa1419862"]._props.effects_damage.Pain.duration = config.globals_config.Health.stims.Propital.Duration;
+
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Duration = config.globals_config.Health.stims.eTGc.Duration;
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffseTGchange[0].Value = config.globals_config.Health.stims.eTGc.Value;
                 globalsFile.Health.Effects.Stimulator.Buffs.Buffs_MULE[0].Duration = config.globals_config.Health.stims.MULE.Duration;
@@ -61,6 +69,8 @@ class ItemMod {
 
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[0].Duration = config.globals_config.Health.stims.SJ6.Duration;
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[0].Value = config.globals_config.Health.stims.SJ6.Value;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[1].Duration = config.globals_config.Health.stims.SJ6.Duration;
+                globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ6TGLabs[1].Value = config.globals_config.Health.stims.SJ6.Value;
 
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ1TGLabs[1].Duration = config.globals_config.Health.stims.SJ1_Strength.Duration;
                 globalsFile.Health.Effects.Stimulator.Buffs.BuffsSJ1TGLabs[1].Value = config.globals_config.Health.stims.SJ1_Strength.Value;
@@ -188,7 +198,7 @@ class ItemMod {
                 for (let a in armor) {
                     if (armor[a].id === items[i]._id) {
                         items[i]._props.Durability = armor[a].Durability;
-                        items[i]._props.MaxDurability = armor[a].MaxDurability;
+                        items[i]._props.MaxDurability = armor[a].Durability;
                         items[i]._props.armorClass = armor[a].armorClass;
                     }
                 }
@@ -197,8 +207,8 @@ class ItemMod {
 
         }
 
-         /** Finish All Quests **/
-         if (config.traders.finishAllQuests === true) {
+        /** Finish All Quests **/
+        if (config.traders.finishAllQuests === true) {
             let base = database.templates.quests
 
             for (let file in base) {
@@ -215,9 +225,113 @@ class ItemMod {
                     }
                 }]
             }
-        } 
+        }
         /** Finish All Quests **/
 
+        /** Add New Stim **/
+        if (config.traders.addGodModeStim === true) {
+            let item_id = "ilhsiek_meds_CTT",
+                item_clone = "5c0e530286f7747fa1419862",
+                item_category = "5b47574386f77428ca22b33a",
+                item_flea_price = 74400,
+                item_pref_abpath = "assets/content/weapons/usable_items/item_syringe/item_stimulator_sj9_tglabs_loot.bundle",
+                item_use_pref_abpath = "assets/content/weapons/usable_items/item_syringe/item_stimulator_sj9_tglabs_container.bundle",
+                item_long_name = "Ilhsiek Medical Stimulants CTT - Can't Touch This!",
+                item_short_name = "IMS-CTT",
+                item_description = "The origin of this is very sus' but it works. That's all I know. Careful with this one, side-effects may include: feeling like a God. KEKW",
+                item_trader = "54cb57776803fa99248b456e", //Thrapist
+                item_trader_price = 74400,
+                item_trader_currency = "5449016a4bdc2d6f028b456f", //Roubles
+                item_trader_LV = 3;
+
+            this.createItemHandbookEntry(item_id, item_category, item_flea_price, handbook);
+            this.createItem(item_id, item_clone, item_pref_abpath, item_use_pref_abpath, item_long_name, item_short_name, item_description, items, global);
+            this.createItemOffer(item_id, item_trader, item_trader_price, item_trader_currency, item_trader_LV, traders);
+
+            globalsFile.Health.Effects.Stimulator.Buffs.Buffsilhsiek_meds_CTT = defaults.buffs.Buffsilhsiek_meds_CTT;
+
+
+
+
+        }
+        /** Add New Stim **/
+
+
+    }
+
+    createItemHandbookEntry(i_id, i_category, i_fprice, i_handbook) {
+        //add item to handbook
+        i_handbook.push(
+            {
+                "Id": i_id,
+                "ParentId": i_category,
+                "Price": i_fprice
+            }
+        );
+    }
+
+    createItem(i_id, i_clone, i_path, i_use_path, i_lname, i_sname, i_desc, i_items, i_global) {
+        let item = JsonUtil.clone(i_items[i_clone]);
+        //change item properties
+        item._id = i_id;
+        item._props.Prefab.path = i_path;
+        item._props.UsePrefab.path = i_use_path;
+
+        item._props.BackgroundColor = "violet";
+        item._props.CreditsPrice = 24000;
+        item._props.StimulatorBuffs = "Buffsilhsiek_meds_CTT";
+        item._props.effects_damage = {
+            "Pain": {
+                "delay": 0,
+                "duration": 1200,
+                "fadeOut": 5
+            },
+            "Contusion": {
+                "delay": 0,
+                "duration": 1200,
+                "fadeOut": 0
+            }
+        };
+
+
+
+        //add item back to database
+        i_items[i_id] = item;
+        //add custom item names to all languages/locales
+        for (const localeID in i_global) {
+            i_global[localeID].templates[i_id] =
+            {
+                "Name": i_lname,
+                "ShortName": i_sname,
+                "Description": i_desc
+            };
+        }
+    }
+    createItemOffer(i_id, i_trader, i_price, i_currency, i_loyalty, i_traders) {
+        i_traders[i_trader].assort.items.push(
+            {
+                "_id": i_id,
+                "_tpl": i_id,
+                "parentId": "hideout",
+                "slotId": "hideout",
+                "upd":
+                {
+                    "UnlimitedCount": true,
+                    "StackObjectsCount": 999999
+                }
+            }
+        );
+        //add trader cost to item
+        i_traders[i_trader].assort.barter_scheme[i_id] = [
+            [
+                {
+                    "count": i_price,
+                    "_tpl": i_currency
+                }
+            ]
+        ];
+        //add trader loyalty level to item
+        i_traders[i_trader].assort.loyal_level_items[i_id] = i_loyalty;
     }
 
     LoopThroughThatBith(filepath) {
@@ -256,4 +370,4 @@ class ItemMod {
     }
 }
 
-module.exports.Mod = ItemMod;
+module.exports.Mod = MuchNeeded;

@@ -11,6 +11,18 @@
         },
         "Health": {
             "enabled": false,
+            "GodMode": {
+                "enabled": false,
+                "bodyParts": {
+                    "Head": 2000,
+                    "Chest": 500,
+                    "Stomach": 100,
+                    "LeftArm": 100,
+                    "RightArm": 100,
+                    "LeftLeg": 100,
+                    "RightLeg": 100
+                }
+            },
             "stims": {
                 "Propital": {
                     "Duration": 300,
@@ -29,8 +41,8 @@
                     "Value": 40
                 },
                 "SJ1_Strength": {
-                    "Duration":500 ,
-                    "Value":40
+                    "Duration": 500,
+                    "Value": 40
                 },
                 "Antidote": {
                     "Duration": 300,
@@ -75,7 +87,7 @@
             "EnduranceWeightThreshold": 200
         },
         "SkillsSettings": {
-            "enabled": false,
+            "enabled": true,
             "WeapomSkillProgressRate": 4,
             "HideoutManagement": {
                 "EliteSlots": {
@@ -99,7 +111,7 @@
         "item_weight_override_enabled": false,
         "item_weight": 0.01,
         "load_speed_override_enabled": false,
-        "load_speed": -80,
+        "load_speed": -90,
         "ammo_stack_size_override_enabled": false,
         "ammo_stack_size": 200,
         "########## MAGAZINES ##########": "",
@@ -107,18 +119,19 @@
             "enabled": false,
             "mag_mp7_40": {
                 "id": "5ba26586d4351e44f824b340",
-                "name": "mag_mp7_hk_std_46x30_40",
                 "size": 80
             },
             "vss_mag_30": {
                 "id": "5a9e81fba2750c00164f6b11",
-                "name": "mag_vss_tochmash_sr3m130_9x39_30",
                 "size": 50
             },
             "glock_drum_50": {
                 "id": "5a718f958dc32e00094b97e7",
-                "name": "mag_glock_sgmt_glock_drum_50_9x19_50",
                 "size": 80
+            },
+            "fiveseven_mag": {
+                "id": "5d3eb5eca4b9363b1f22f8e4",
+                "size": 35
             }
         },
         "########## MEDS ##########": "",
@@ -126,13 +139,11 @@
             "enabled": false,
             "salewa": {
                 "id": "544fb45d4bdc2dee738b4568",
-                "name": "salewa",
                 "usetime": 1,
                 "heal_rate": 85
             },
             "surv12": {
                 "id": "5d02797c86f774203f38e30a",
-                "name": "survival_first_aid_rollup_kit",
                 "usetime": 10,
                 "heal_rate": 0
             }
@@ -142,57 +153,67 @@
             "enabled": true,
             "kappa": {
                 "id": "5c093ca986f7740a1867ab12",
-                "name": "item_container_secured_kappa",
                 "cellsH": 4,
                 "cellsV": 4
             },
             "gamma": {
                 "id": "5857a8bc2459772bad15db29",
-                "name": "Gamma container",
                 "cellsH": 3,
                 "cellsV": 3
             },
             "raid_6SH118": {
                 "id": "5df8a4d786f77412672a1e3b",
-                "name": "backpack_Raid_6SH118",
                 "cellsH": 6,
                 "cellsV": 8
             }
         },
         "########## ARMOR ##########": "",
         "armor": {
-            "enabled": false,
+            "enabled": true,
             "slick": {
                 "id": "5e4abb5086f77406975c9342",
-                "name": "item_equipment_armor_slick",
                 "Durability": 80,
-                "MaxDurability": 80,
                 "armorClass": 6
             },
             "slick_olive": {
                 "id": "6038b4ca92ec1c3103795a0d",
-                "name": "item_equipment_armor_slick_olive",
                 "Durability": 80,
-                "MaxDurability": 80,
                 "armorClass": 6
             },
             "slick_tan": {
                 "id": "6038b4b292ec1c3103795a0b",
-                "name": "item_equipment_armor_slick_tan",
                 "Durability": 80,
-                "MaxDurability": 80,
                 "armorClass": 6
             },
             "npp_condor": {
                 "id": "603409c80ca681766b6a0fb2",
-                "name": "item_equipment_glasses_npp",
                 "Durability": 25,
-                "MaxDurability": 25,
                 "armorClass": 1
+            },
+            "hexgrid": {
+                "id": "5fd4c474dd870108a754b241",
+                "Durability": 50,
+                "armorClass": 6
+            },
+            "6b13_killa": {
+                "id": "5c0e541586f7747fa54205c9",
+                "Durability": 60,
+                "armorClass": 5
+            },
+            "defender2": {
+                "id": "5e9dacf986f774054d6b89f4",
+                "Durability": 70,
+                "armorClass": 5
+            },
+            "tv110": {
+                "id": "5c0e746986f7741453628fe5",
+                "Durability": 85,
+                "armorClass": 4
             }
         }
     },
-    "traders":{
-        "finishAllQuests":false
+    "traders": {
+        "finishAllQuests": false,
+        "addGodModeStim":true
     }
 }

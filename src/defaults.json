@@ -1,0 +1,152 @@
+{
+    "Health": {
+        "bodyParts": {
+            "Head": 35,
+            "Chest": 85,
+            "Stomach": 70,
+            "LeftArm": 60,
+            "RightArm": 60,
+            "LeftLeg": 65,
+            "RightLeg": 65
+        }
+    },
+    "buffs": {
+        "Buffsilhsiek_meds_CTT": [
+            {
+                "BuffType": "DamageModifier",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": -100,
+                "AbsoluteValue": false,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 100,
+                "AbsoluteValue": true,
+                "SkillName": "Strength"
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 100,
+                "AbsoluteValue": true,
+                "SkillName": "Endurance"
+            },
+            {
+                "BuffType": "WeightLimit",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 100,
+                "AbsoluteValue": false,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "HealthRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 50,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "MaxStamina",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 300,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "StaminaRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 20,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 120,
+                "Value": 200,
+                "AbsoluteValue": true,
+                "SkillName": "StressResistance"
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 200,
+                "AbsoluteValue": true,
+                "SkillName": "Vitality"
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 200,
+                "AbsoluteValue": true,
+                "SkillName": "Immunity"
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 100,
+                "AbsoluteValue": true,
+                "SkillName": "RecoilControl"
+            },
+            {
+                "BuffType": "RemoveAllBloodLosses",
+                "Chance": 1,
+                "Delay": 0,
+                "Duration": 1200,
+                "Value": 0,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "SkillRate",
+                "Chance": 1,
+                "Delay": 1,
+                "Duration": 1200,
+                "Value": 300,
+                "AbsoluteValue": true,
+                "SkillName": "Health"
+            },
+            {
+                "BuffType": "EnergyRate",
+                "Chance": 1,
+                "Delay": 100,
+                "Duration": 200,
+                "Value": -0.5,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            },
+            {
+                "BuffType": "HydrationRate",
+                "Chance": 1,
+                "Delay": 100,
+                "Duration": 200,
+                "Value": -0.5,
+                "AbsoluteValue": true,
+                "SkillName": ""
+            }
+        ]
+    }
+}

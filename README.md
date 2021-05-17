@@ -5,6 +5,7 @@
 ## Some Features
 
 ### Remove the damn FOG,
+### GOD MODE
 ### Boost Map loot,
 ### Buff M.U.L.E., Propital, eTGc,
 ### Increase Walk Speed and Sprint Speed,
