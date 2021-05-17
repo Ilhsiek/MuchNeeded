@@ -5,10 +5,10 @@
 
 
 1.2.2
-- Corrected values for the "ArmorClass" of the the new body armor buffs added. (Thanks to @Rev to catching that)
+- Corrected values for the "ArmorClass" of the the new body armor buffs added. (Thanks to Revingly to catching that)
 
 1.2.1
-- Added GodMode (Thanks to @Rev on the collaboration)
+- Added GodMode (Thanks to Revingly on the collaboration)
 - Added more body armor(Killa, Defender, TV110 and HexGrid, more can be added with suggestions)
 
 1.1.1

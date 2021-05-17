@@ -129,14 +129,6 @@ class MuchNeeded {
         /** Globals Modifier **/
 
 
-        /** CHAMGE THE WEIGHT OF ALL ITEMS **/
-        for (let i in items) {
-
-            // 
-        }
-        /** CHAMGE THE WEIGHT OF ALL ITEMS **/
-
-
         for (let i in items) {
             // Global Weight Modifier
             if (config.items.item_weight_override_enabled === true)
@@ -332,41 +324,6 @@ class MuchNeeded {
         ];
         //add trader loyalty level to item
         i_traders[i_trader].assort.loyal_level_items[i_id] = i_loyalty;
-    }
-
-    LoopThroughThatBith(filepath) {
-        const fs = require('fs');
-        let baseNode = {};
-        let directories = this.getDirList(filepath);
-        let files = fs.readdirSync(filepath);
-
-        // remove all directories from files
-        for (let directory of directories) {
-            for (let file in files) {
-                if (files[file] === directory) {
-                    files.splice(file, 1);
-                }
-            }
-        }
-
-        // make sure to remove the file extention
-        for (let node in files) {
-            let fileName = files[node].split('.').slice(0, -1).join('.');
-            baseNode[fileName] = filepath + files[node];
-        }
-
-        // deep tree search
-        for (let node of directories) {
-            baseNode[node] = this.LoopThroughThatBith(filepath + node + "/");
-        }
-
-        return baseNode;
-    }
-    getDirList(path) {
-        const fs = require('fs');
-        return fs.readdirSync(path).filter(function (file) {
-            return fs.statSync(path + "/" + file).isDirectory();
-        });
     }
 }
 
